@@ -55,38 +55,16 @@ cd my-scrap-project
 1. **Build Docker Image:**
 
 ```bash
-docker build -t my-scrap-project .
+docker build -t my-scrap-project . -t scarper-c
 ```
 
 2. **Run the Spider:**
 
 ```bash
-docker run --rm my-scrap-project scrapy crawl ikmanlistings
+docker run -it -v $(pwd)/output:/app/output  scraper-c
 ```
 
-This will run the `ikmanlistings` spider and output the scraped data to your console.
-
----
-
-### 🧪 Run with Docker Compose (Preferred for Dev)
-
-1. **Build and Start the Services:**
-
-```bash
-docker-compose up --build
-```
-
-2. **Run the Spider Inside the Container:**
-
-```bash
-docker-compose exec scrapy scrapy crawl ikmanlistings
-```
-
-3. **Stop the Containers:**
-
-```bash
-docker-compose down
-```
+This will run the `ikmanlistings` spider and output the scraped data to your console. and will write the output to the local output folder output.json file
 
 ---
 
@@ -123,22 +101,9 @@ ENTRYPOINT ["scrapy"]
 ### requirements.txt
 
 ```
-scrapy
-```
+scrapy>=2.13.2
+beautifulsoup4>=4.13.4
 
----
-
-### docker-compose.yml
-
-```yaml
-version: '3.8'
-
-services:
-  scrapy:
-    build: .
-    volumes:
-      - .:/app
-    command: ["scrapy", "crawl", "ikmanlistings"]
 ```
 
 ---
