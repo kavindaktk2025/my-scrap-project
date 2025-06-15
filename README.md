@@ -1,8 +1,4 @@
-Sure! Here's the full `README.md` content in a single GitHub-friendly format. You can copy and paste this directly into your project's `README.md` file:
 
----
-
-```markdown
 # 🕷️ My Scrap Project
 
 A Scrapy-based web scraping project designed to extract data from listing websites. This project includes Docker support to make deployment and execution easier across environments.
